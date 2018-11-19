@@ -1,0 +1,47 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<script>
+  window.onload = function(){
+    document.getElementById('id_sede_bicicleta').className += "form-control";
+    document.getElementById('id_modelo').className += "form-control";
+    document.getElementById('id_marca').className += "form-control";
+    document.getElementById('id_aro').className += "form-control";
+    document.getElementById('id_precio').className += "form-control";
+    document.getElementById('id_estado_bicicleta').className += "form-control";
+    document.getElementById('id_descripcion_bicicleta').className += "form-control";
+    document.getElementById('id_imagen_bicicleta').className += "form-control";
+  }
+</script>
+
+{% if request.get_full_path == "/mantenedor/new_bicicleta/" %}
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                    <h4><a href="{% url 'catalogo:bicicleta_list' %}">Agregar bicicleta</a></h4>
+                  <br>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                    <button type="submit" class="btn btn-danger btn-fw">
+                        <i class="mdi mdi-upload"></i>Agregar
+                    </button>
+                  </form>
+{% else %}
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                    <h4><a href="{% url 'catalogo:bicicleta_list' %}">Editar bicicleta</a></h4>
+                  <br>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-danger btn-fw">
+                        <i class="mdi mdi-cloud-download"></i>Editar
+                    </button>
+                  </form>
+    {% endif %}
+
+{% endblock %}
+

@@ -7,7 +7,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>TourCletas</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
   <!-- plugins:css -->
+
   <link rel="stylesheet" href="{% static 'core/3portfolio/vendor/bootstrap/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'core/vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
   <link rel="stylesheet" href="{% static 'core/vendors/css/vendor.bundle.base.css' %}">
@@ -19,58 +24,9 @@
   <link rel="stylesheet" href="{% static 'core/3portfolio/css/3-col-portfolio.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
   <link rel="stylesheet" href="{% static 'core/3portfolio/vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/vendors/iconfonts/font-awesome/css/font-awesome.css' %}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
-  <script type="text/javascript">
-YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
-
-    // Create a new instance of calendar, placing it in
-    // #mycalendar container, setting its width to 340px,
-    // the flags for showing previous and next month's
-    // dates in available empty cells to true, and setting
-    // the date to today's date.
-    var calendar = new Y.Calendar({
-      contentBox: "#mycalendar",
-      width:'340px',
-      showPrevMonth: true,
-      showNextMonth: true,
-      date: new Date()}).render();
-
-    // Get a reference to Y.DataType.Date
-    var dtdate = Y.DataType.Date;
-
-    // Listen to calendar's selectionChange event.
-    calendar.on("selectionChange", function (ev) {
-
-      // Get the date from the list of selected
-      // dates returned with the event (since only
-      // single selection is enabled by default,
-      // we expect there to be only one date)
-      var newDate = ev.newSelection[0];
-
-      // Format the date and output it to a DOM
-      // element.
-      Y.one("#selecteddate").setHTML(dtdate.format(newDate));
-    });
-
-
-    // When the 'Show Previous Month' link is clicked,
-    // modify the showPrevMonth property to show or hide
-    // previous month's dates
-    Y.one("#togglePrevMonth").on('click', function (ev) {
-      ev.preventDefault();
-      calendar.set('showPrevMonth', !(calendar.get("showPrevMonth")));
-    });
-
-    // When the 'Show Next Month' link is clicked,
-    // modify the showNextMonth property to show or hide
-    // next month's dates
-    Y.one("#toggleNextMonth").on('click', function (ev) {
-      ev.preventDefault();
-      calendar.set('showNextMonth', !(calendar.get("showNextMonth")));
-    });
-});
-</script>
 </head>
 
 <body>
@@ -79,10 +35,10 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html">
-          <img src="images/logo.svg" alt="logo" />
+          <img src="{% static 'core/icono/logotour.png' %}" alt="logo" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html">
-          <img src="images/logo-mini.svg" alt="logo" />
+          <img src="{% static 'core/images/logo-mini.svg' %}" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -116,9 +72,7 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i>
+              <a href="#" target="_blank">TourCletas</a>. All rights reserved.</span>
             </span>
           </div>
         </footer>
@@ -143,6 +97,13 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
   <!-- Custom js for this page-->
   <script src="{% static 'core/js/dashboard.js' %}"></script>
   <script src="{% static 'core/3portfolio/vendor/jquery/jquery.min.js' %}"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  {% block script %}{% endblock script %}
   <!-- End custom js for this page-->
 </body>
 

@@ -1,0 +1,65 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+<form method="GET">
+ <section>
+   <div class="row">
+    <table class="table table-hover table-bordered text-center">
+      <tr class="text-center">
+        <th>no.</th>
+        <th>Item</th>
+        <th>Precio</th>
+      </tr>
+      {% for item in order.get_cart_items %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>
+            {{ item.product.marca }}
+            <span class="pull-right">
+              <a href="{% url 'delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" onclick="return confirm_delete();">
+                <i class="fa fa-trash"></i></a>
+            </span>
+          </td>
+          <td>{{ item.product.precio }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan= 3>Aún no has añadido productos.</td>
+        </tr>
+      {% endfor %}
+      <tr>
+        {% if order.get_cart_total != None %}
+        <td colspan=2>
+          <strong class="pull-right">Total de orden:</strong>
+        </td>
+        
+        <td colspan= 1>
+          $<strong>{{ order.get_cart_total }}</strong>
+        </td>
+        {% endif %}
+      </tr>
+      <tr>
+        <td colspan=1 >
+          <a href="{% url 'catalogo_lista' %}" class="btn btn-warning pull-left">
+            {% if order %}Añadir otro producto{% else %}Añadir a la reserva {% endif %}
+          </a> 
+        </td>
+        <td colspan=2>
+          {% if order.get_cart_items %}
+            <a href="{% url 'checkout' order.pk %}" class="pull-right btn btn-primary" type="submit">Reservar</a>
+          {% endif %}
+        </td>
+      </tr>
+    </table>
+   </div>
+ </section>
+ </form>
+ {% endblock %}
+ {% block scripts%}
+ {{ block.super }}
+    <script>
+  function confirm_delete(){
+    return confirm("Do you want to remove this item from cart?");
+  }
+  </script>
+  {% endblock scripts %}

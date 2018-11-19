@@ -1,0 +1,12 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'catalogo:bicicleta_list' %}">Bicicletas</a>: Eliminar</h2>
+
+<form method="post">{% csrf_token %}
+    <h5>Estas seguro que quieres eliminar la bicicleta "{{ object }}" ?</h5><br><br>
+    <input class="btn btn-primary btn-fw" type="submit" value="Eliminar" />
+</form>
+
+{% endblock %}

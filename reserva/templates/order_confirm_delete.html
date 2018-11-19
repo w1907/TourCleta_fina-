@@ -1,0 +1,12 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<div class="row" style="align-content: center;" >
+		<div class="col">
+			<h5>¿Seguro de cancelar la orden (número de orden "{{ order.ref_code }}")?</h5>
+			<input class="btn btn-danger btn-fw" type="submit" value="Eliminar" />
+		</div>
+	</div>
+{% endblock %}

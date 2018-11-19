@@ -1,0 +1,45 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<script>
+  window.onload = function(){
+    document.getElementById('id_sede_equipamiento').className += "form-control";
+    document.getElementById('id_nombre').className += "form-control";
+    document.getElementById('id_precio').className += "form-control";
+    document.getElementById('id_estado_equipamiento').className += "form-control";
+    document.getElementById('id_descripcion_equipamiento').className += "form-control";
+    document.getElementById('id_imagen_equipamiento').className += "form-control";
+  }
+</script>
+
+{% if request.get_full_path == "/mantenedor/new_equipamiento/" %}
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                    <h4><a href="{% url 'catalogo:equipamiento_list' %}">Agregar Equipamiento</a></h4>
+                  <br>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-danger btn-fw">
+                        <i class="mdi mdi-upload"></i>Agregar
+                    </button>
+                  </form>
+{% else %}
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                    <h4><a href="{% url 'catalogo:equipamiento_list' %}">Editar Equipamiento</a></h4>
+                  <br>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-danger btn-fw">
+                        <i class="mdi mdi-cloud-download"></i>Editar
+                    </button>
+                  </form>
+    {% endif %}
+
+{% endblock %}
+

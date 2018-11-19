@@ -1,29 +1,63 @@
 {% extends "core/index.html" %}
 {% block content %}
 {% if ver_mas == "bicicleta" %}
-<div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">{{objetos.marca}}</a>
-            </h4>
-            <p class="card-text">Aro: {{objetos.aro}}</p>
-            <p class="card-text">Precio: {{objetos.precio}}</p>
-          </div>
-        </div>
-</div>
+<div class="card h-100">
+              <div class="panel-body">
+                <div class="bs-component">
+                  <div class="media">
+                    <a class="media-left" href="#">
+                      {% if objetos.imagen_bicicleta %}
+                      <img data-src="holder.js/60x60" alt="60x60" style="width: 300px; height: 250px;" src="{{objetos.imagen_bicicleta.url}}" data-holder-rendered="true">
+                      {% else %}
+                      <img class="card-img-top" alt="IMAGEN NO DISPONIBLE">
+                      {% endif %}
+                    </a>
+                    <div class="media-body">
+                      <div class="card-body">
+                          <h4 class="card-title">{{objetos.marca}}</h4>
+                        <ul class="list-star">
+                          <li>Sede: '{{objetos.sede_bicicleta}}'</li>
+                          <li>Aro: '{{objetos.aro}}'</li>
+                          <li>Precio: ${{objetos.precio}}</li>
+                          <li>Estado: '{{objetos.estado_bicicleta}}'</li>
+                          <li>Descripcion: {{objetos.descripcion_bicicleta}}</li>
+                        </ul>
+                       </div>
+                     </div>
+                    </div>
+                  </div>
+              </div>
+          <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+      </div>
+  </div> 
 {% else %}
-<div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">{{objetos.nombre}}</a>
-            </h4>
-            <p class="card-text">Precio: {{objetos.precio}}</p>
-          </div>
-        </div>
-</div>
+  <div class="card h-100">
+              <div class="panel-body">
+                <div class="bs-component">
+                  <div class="media">
+                    <a class="media-left" href="#">
+                      {% if objetos.imagen_equipamiento %}
+                      <img data-src="holder.js/60x60" alt="60x60" style="width: 300px; height: 250px;" src="{{objetos.imagen_equipamiento.url}}" data-holder-rendered="true">
+                      {% else %}
+                      <img class="card-img-top" alt="IMAGEN NO DISPONIBLE">
+                      {% endif %}
+                    </a>
+                    <div class="media-body">
+                      <div class="card-body">
+                          <h4 class="card-title">{{objetos.nombre}}</h4>
+                        <ul class="list-star">
+                          <li>Sede: {{objetos.sede_equipamiento}}</li>
+                          <li>Precio: ${{objetos.precio}}</li>
+                          <li>Estado: {{objetos.estado_equipamiento}}</li>
+                          <li>Descripcion: {{objetos.descripcion_equipamiento}}</li>
+                        </ul>
+                       </div>
+                     </div>
+                    </div>
+                  </div>
+              </div>
+          <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+      </div>
+  </div> 
 {% endif %}
 {% endblock %}

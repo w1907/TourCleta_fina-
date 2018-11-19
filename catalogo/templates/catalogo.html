@@ -10,18 +10,32 @@
                 {% if i.imagen_bicicleta %}
                 <img class="card-img-top" src="{{ i.imagen_bicicleta.url }}">
                 {% else %}
-                <img class="card-img-top" alt="HUGO CULIA >:D">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png" alt="">
                 {% endif %}
               </a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">{{i.marca}}</a>
                 </h4>
-                <p class="card-text">{{i.aro}}</p>
-                <p class="card-text">{{i.precio}}</p>
+                <p class="card-text">Sede: {{i.sede_bicicleta}}</p>
+                <p class="card-text">Aro: "{{i.aro}}"</p>
+                <p class="card-text">Precio: ${{i.precio}}</p>
               </div>
-              <a class="btn btn-primary btn-fw" href="bicicleta/ver_mas_bicicleta/{{i.pk}}">
+              {% if i in user.profile.bicicletas.all %}
+              <!-- add a button here to see the product -->
+              <a class="btn btn-warning btn-fw" href="#">
+                  <i class="fa fa-minus"></i>Reservada</a>
+              <a class="btn btn-primary btn-fw" href="/catalog/bicicleta/ver_mas_bicicleta/{{i.pk}}">
+                <i class="fa fa-plus"></i>Ver mas</a>
+              {% elif i in current_order_products %}
+              <a href="{% url 'order_summary' %}" class="btn btn-warning">Ir a reserva</a>
+              <a class="btn btn-primary btn-fw" href="/catalog/bicicleta/ver_mas_bicicleta/{{i.pk}}">
                   <i class="fa fa-plus"></i>Ver mas</a>
+              {% else %}
+              <a href="{% url 'add_to_cart' i.id %}" class="btn btn-warning">Agregar a reserva</a>
+              <a class="btn btn-primary btn-fw" href="/catalog/bicicleta/ver_mas_bicicleta/{{i.pk}}">
+                  <i class="fa fa-plus"></i>Ver mas</a>
+              {% endif %}
             </div>
           </div>
     {% endfor %}
@@ -29,14 +43,21 @@
     {% for i in objetos %}
           <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="" alt=""></a>
+              <a href="#">
+                {% if i.imagen_equipamiento %}
+                <img class="card-img-top" src="{{ i.imagen_equipamiento.url }}">
+                {% else %}
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png" alt="">
+                {% endif %}
+              </a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">{{i.nombre}}</a>
                 </h4>
-                <p class="card-text">{{i.precio}}</p>
+                <p class="card-text">Sede: {{i.sede_equipamiento}}</p>
+                <p class="card-text">Precio: ${{i.precio}}</p>
               </div>
-              <a class="btn btn-primary btn-fw" href="equipamiento/ver_mas_equipamiento/{{i.pk}}">
+              <a class="btn btn-primary btn-fw" href="/catalog/equipamiento/ver_mas_equipamiento/{{i.pk}}">
                   <i class="fa fa-plus"></i>Ver mas</a>
             </div>
           </div>

@@ -1,0 +1,50 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'catalogo:bicicleta_list' %}">Bicicletas</a></h2>
+<p align = "center">
+    <a class="btn btn-outline-primary" href="{% url 'catalogo:bicicleta_new' %}">
+        <i class="fa fa-plus"></i>Agregar Bicicleta
+    </a>
+    <br>
+    <br>
+    <br>
+</p>
+<ul>
+    <div class="row">
+    {% for i in object_list %}
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+              <a href="#">
+              {% if i.imagen_bicicleta %}
+              <img class="card-img-top" src="{{i.imagen_bicicleta.url}}"></a>
+              {% else %}
+              <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/d/da/Imagen_no_disponible.svg" alt="IMAGEN NO DISPONIBLE">
+              {% endif %}
+            <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">{{i.marca}}</a>
+                </h4>
+                <p class="card-text">Aro: '{{i.aro}}'</p>
+                <p class="card-text">Precio: ${{i.precio}}</p>
+                <p class="card-text">Descripcion Bicicleta: {{i.descripcion_bicicleta}}</p>
+            </div>
+                <a class="btn btn-outline-primary" href="{% url 'catalogo:bicicleta_edit' i.id %}">
+                <i class="fa fa-plus"></i>Editar
+                </a>
+                <br>
+                <a class="btn btn-outline-primary" href="{% url 'catalogo:bicicleta_delete' i.id %}">
+                <i class="fa fa-plus"></i>Eliminar
+                </a>
+            </div>
+        </div>
+       
+
+
+
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

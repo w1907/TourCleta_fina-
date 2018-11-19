@@ -1,5 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+.yui3-button {
+    margin:10px 0px 10px 0px;
+    color: #fff;
+    background-color: #3476b7;
+}
+</style>
+<script type="text/javascript">
+YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
+
+    // Create a new instance of calendar, placing it in
+    // #mycalendar container, setting its width to 340px,
+    // the flags for showing previous and next month's
+    // dates in available empty cells to true, and setting
+    // the date to today's date.
+    var calendar = new Y.Calendar({
+      contentBox: "#mycalendar",
+      width:'340px',
+      showPrevMonth: true,
+      showNextMonth: true,
+      date: new Date()}).render();
+
+    // Get a reference to Y.DataType.Date
+    var dtdate = Y.DataType.Date;
+
+    // Listen to calendar's selectionChange event.
+    calendar.on("selectionChange", function (ev) {
+
+      // Get the date from the list of selected
+      // dates returned with the event (since only
+      // single selection is enabled by default,
+      // we expect there to be only one date)
+      var newDate = ev.newSelection[0];
+
+      // Format the date and output it to a DOM
+      // element.
+      Y.one("#selecteddate").setHTML(dtdate.format(newDate));
+    });
+
+
+    // When the 'Show Previous Month' link is clicked,
+    // modify the showPrevMonth property to show or hide
+    // previous month's dates
+    Y.one("#togglePrevMonth").on('click', function (ev) {
+      ev.preventDefault();
+      calendar.set('showPrevMonth', !(calendar.get("showPrevMonth")));
+    });
+
+    // When the 'Show Next Month' link is clicked,
+    // modify the showNextMonth property to show or hide
+    // next month's dates
+    Y.one("#toggleNextMonth").on('click', function (ev) {
+      ev.preventDefault();
+      calendar.set('showNextMonth', !(calendar.get("showNextMonth")));
+    });
+});
+</script>
+</head>
+<body>
+<div id="demo" class="yui3-skin-sam yui3-g">
+	<!-- You need this skin class -->
+	<div id="leftcolumn" class="yui3-u">
+		<!-- Container for the calendar -->
+		<div id="yui_3_18_1_1_1542438024496_12" class="yui3-widget yui3-calendarbase yui3-calendar" aria-labelledby="calendaryui_3_18_1_1_1542438024496_15_header" tabindex="1" style="width: 340px;">
+			<div id="mycalendar" class="yui3-calendar-content">
+				<div class="yui3-g yui3-calendar-pane" id="calendaryui_3_18_1_1_1542438024496_15">
+					<div class="yui3-g yui3-calendar-header" id="yui_3_18_1_1_1542438024496_140">
+						<a class="yui3-u yui3-calendarnav-prevmonth" role="button" aria-label="Go to previous month" tabindex="1"></a>
+						<div class="yui3-u yui3-calendar-header-label" id="calendaryui_3_18_1_1_1542438024496_15_header" aria-role="heading">November 2018</div>
+						<a class="yui3-u yui3-calendarnav-nextmonth" role="button" aria-label="Go to next month" tabindex="1"></a>
+					</div>
+					<div class="yui3-u-1">
+						<table class="yui3-calendar-grid" id="calendaryui_3_18_1_1_1542438024496_15_pane_0" role="grid" aria-readonly="true" aria-label="November 2018" tabindex="1">
+							<thead>
+								<tr class="yui3-calendar-weekdayrow" role="row">
+									<th class="yui3-calendar-weekday" role="columnheader" aria-label="Sunday">Su</th>
+     								<th class="yui3-calendar-weekday" role="columnheader" aria-label="Monday">Mo</th>
+     								<th class="yui3-calendar-weekday" role="columnheader" aria-label="Tuesday">Tu</th>
+     								<th class="yui3-calendar-weekday" role="columnheader" aria-label="Wednesday">We</th>
+     								<th class="yui3-calendar-weekday" role="columnheader" aria-label="Thursday">Th</th>
+     								<th class="yui3-calendar-weekday" role="columnheader" aria-label="Friday">Fr</th>
+     								<th class="yui3-calendar-weekday" role="columnheader" aria-label="Saturday">Sa</th>
+     							</tr>
+     						</thead>
+     						<tbody>
+     							<tr class="yui3-calendar-row" role="row">
+     								<td class="calendar_col0 yui3-calendar-prevmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_-5" role="gridcell" tabindex="-1">26</td>
+     								<td class="calendar_col1 yui3-calendar-prevmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_-4" role="gridcell" tabindex="-1">27</td>
+     								<td class="calendar_col2 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_-3" role="gridcell" tabindex="-1">28</td>
+     								<td class="calendar_col3 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_-2" role="gridcell" tabindex="-1">29</td>
+     								<td class="calendar_col4 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_-1" role="gridcell" tabindex="-1">30</td>
+     								<td class="calendar_col5 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_0" role="gridcell" tabindex="-1">31</td>
+     								<td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_1" role="gridcell" tabindex="-1" aria-disabled="false">1</td>
+     								<td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_2" role="gridcell" tabindex="-1" aria-disabled="false">2</td>
+     								<td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_3" role="gridcell" tabindex="-1" aria-disabled="false">3</td>
+     								<td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_4" role="gridcell" tabindex="-1" aria-disabled="false">4</td>
+     								<td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_5" role="gridcell" tabindex="-1" aria-disabled="false">5</td>
+     								<td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_6" role="gridcell" tabindex="-1" aria-disabled="false">6</td>
+     								<td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_7" role="gridcell" tabindex="-1" aria-disabled="false">7</td>
+     							</tr>
+     							<tr class="yui3-calendar-row" role="row">
+     								<td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_2" role="gridcell" tabindex="-1" aria-disabled="false">2</td>
+     								<td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_3" role="gridcell" tabindex="-1" aria-disabled="false">3</td>
+     								<td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_4" role="gridcell" tabindex="-1" aria-disabled="false">4</td>
+     								<td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_5" role="gridcell" tabindex="-1" aria-disabled="false">5</td>
+     								<td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_6" role="gridcell" tabindex="-1" aria-disabled="false">6</td>
+     								<td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_7" role="gridcell" tabindex="-1" aria-disabled="false">7</td>
+     								<td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_8" role="gridcell" tabindex="-1" aria-disabled="false">8</td>
+     								<td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_9" role="gridcell" tabindex="-1" aria-disabled="false">9</td>
+     								<td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_10" role="gridcell" tabindex="-1" aria-disabled="false">10</td>
+     								<td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_11" role="gridcell" tabindex="-1" aria-disabled="false">11</td>
+     								<td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_12" role="gridcell" tabindex="-1" aria-disabled="false">12</td>
+     								<td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_13" role="gridcell" tabindex="-1" aria-disabled="false">13</td>
+     								<td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_14" role="gridcell" tabindex="-1" aria-disabled="false">14</td>
+     							</tr>
+     							<tr class="yui3-calendar-row" role="row">
+     								<td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_9" role="gridcell" tabindex="-1" aria-disabled="false">9</td>
+     								<td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_10" role="gridcell" tabindex="-1" aria-disabled="false">10</td>
+     								<td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_11" role="gridcell" tabindex="-1" aria-disabled="false">11</td>
+     								<td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_12" role="gridcell" tabindex="-1" aria-disabled="false">12</td>
+     								<td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_13" role="gridcell" tabindex="-1" aria-disabled="false">13</td>
+     								<td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_14" role="gridcell" tabindex="-1" aria-disabled="false">14</td>
+     								<td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_15" role="gridcell" tabindex="-1" aria-disabled="false">15</td>
+     								<td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_16" role="gridcell" tabindex="-1" aria-disabled="false">16</td>
+     								<td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_17" role="gridcell" tabindex="-1" aria-disabled="false">17</td>
+     								<td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_18" role="gridcell" tabindex="-1" aria-disabled="false">18</td>
+     								<td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_19" role="gridcell" tabindex="-1" aria-disabled="false">19</td>
+     								<td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_20" role="gridcell" tabindex="-1" aria-disabled="false">20</td>
+     								<td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_21" role="gridcell" tabindex="-1" aria-disabled="false">21</td>
+     							</tr>
+     							<tr class="yui3-calendar-row" role="row">
+     								<td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_16" role="gridcell" tabindex="-1" aria-disabled="false">16</td>
+     								<td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_17" role="gridcell" tabindex="-1" aria-disabled="false">17</td>
+     								<td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_18" role="gridcell" tabindex="-1" aria-disabled="false">18</td>
+     								<td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_19" role="gridcell" tabindex="-1" aria-disabled="false">19</td>
+     								<td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_20" role="gridcell" tabindex="-1" aria-disabled="false">20</td>
+     								<td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_21" role="gridcell" tabindex="-1" aria-disabled="false">21</td>
+     								<td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_22" role="gridcell" tabindex="-1" aria-disabled="false">22</td>
+     								<td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_23" role="gridcell" tabindex="-1" aria-disabled="false">23</td>
+     								<td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_24" role="gridcell" tabindex="-1" aria-disabled="false">24</td>
+     								<td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_25" role="gridcell" tabindex="-1" aria-disabled="false">25</td>
+     								<td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_26" role="gridcell" tabindex="-1" aria-disabled="false">26</td>
+     								<td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_27" role="gridcell" tabindex="-1" aria-disabled="false">27</td>
+     								<td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_28" role="gridcell" tabindex="-1" aria-disabled="false">28</td>
+     							</tr>
+     							<tr class="yui3-calendar-row" role="row">
+     								<td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_23" role="gridcell" tabindex="-1" aria-disabled="false">23</td>
+     								<td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_24" role="gridcell" tabindex="-1" aria-disabled="false">24</td>
+     								<td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_25" role="gridcell" tabindex="-1" aria-disabled="false">25</td>
+     								<td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_26" role="gridcell" tabindex="-1" aria-disabled="false">26</td>
+     								<td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_27" role="gridcell" tabindex="-1" aria-disabled="false">27</td>
+     								<td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_28" role="gridcell" tabindex="-1" aria-disabled="false">28</td>
+     								<td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_29" role="gridcell" tabindex="-1" aria-disabled="false">29</td>
+     								<td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_30" role="gridcell" tabindex="-1" aria-disabled="false">30</td>
+     								<td class="calendar_col8 yui3-calendar-nextmonth-day" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_31" role="gridcell" tabindex="-1" aria-disabled="false">1</td>
+     								<td class="calendar_col9 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_32" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     								<td class="calendar_col10 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_33" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     								<td class="calendar_col11 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_34" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     								<td class="calendar_col12 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_35" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     							</tr>
+     							<tr class="yui3-calendar-row" role="row">
+     								<td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_30" role="gridcell" tabindex="-1" aria-disabled="false">30</td>
+     								<td class="calendar_col1 yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_31" role="gridcell" tabindex="-1">&nbsp;</td>
+     								<td class="calendar_col2 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_32" role="gridcell" tabindex="-1" aria-disabled="false">2</td>
+     								<td class="calendar_col3 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_33" role="gridcell" tabindex="-1" aria-disabled="false">3</td>
+     								<td class="calendar_col4 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_34" role="gridcell" tabindex="-1" aria-disabled="false">4</td>
+     								<td class="calendar_col5 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_35" role="gridcell" tabindex="-1" aria-disabled="false">5</td>
+     								<td class="calendar_col6 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_36" role="gridcell" tabindex="-1" aria-disabled="false">6</td>
+     								<td class="calendar_col7 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_37" role="gridcell" tabindex="-1" aria-disabled="false">7</td>
+     								<td class="calendar_col8 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_38" role="gridcell" tabindex="-1" aria-disabled="false">8</td>
+     								<td class="calendar_col9 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_39" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     								<td class="calendar_col10 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_40" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     								<td class="calendar_col11 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_41" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     								<td class="calendar_col12 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_42" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td>
+     							</tr>
+     						</tbody>
+     					</table>
+     				</div>
+     			</div>
+     		</div>
+     	</div>
+    </div>
+</div>
+<div>
+	<H1>AJKHAJKHSJKASAHK</H1>
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div class="example yui3-skin-sam" id="yui_3_18_1_2_1542474968071_143">
+    <!-- Add an additional blue button style -->
+<style>
+.yui3-button {
+    margin:10px 0px 10px 0px;
+    color: #fff;
+    background-color: #3476b7;
+}
+</style>
+
 <div id="demo" class="yui3-skin-sam yui3-g"> <!-- You need this skin class -->
 
   <div id="leftcolumn" class="yui3-u">
      <!-- Container for the calendar -->
-     <div id="yui_3_18_1_1_1542438024496_12" class="yui3-widget yui3-calendarbase yui3-calendar" aria-labelledby="calendaryui_3_18_1_1_1542438024496_15_header" tabindex="1" style="width: 340px;"><div id="mycalendar" class="yui3-calendar-content"><div class="yui3-g yui3-calendar-pane" id="calendaryui_3_18_1_1_1542438024496_15"><div class="yui3-g yui3-calendar-header" id="yui_3_18_1_1_1542438024496_140"><a class="yui3-u yui3-calendarnav-prevmonth" role="button" aria-label="Go to previous month" tabindex="1"></a><div class="yui3-u yui3-calendar-header-label" id="calendaryui_3_18_1_1_1542438024496_15_header" aria-role="heading">November 2018</div><a class="yui3-u yui3-calendarnav-nextmonth" role="button" aria-label="Go to next month" tabindex="1"></a></div><div class="yui3-u-1"><table class="yui3-calendar-grid" id="calendaryui_3_18_1_1_1542438024496_15_pane_0" role="grid" aria-readonly="true" aria-label="November 2018" tabindex="1"><thead><tr class="yui3-calendar-weekdayrow" role="row"><th class="yui3-calendar-weekday" role="columnheader" aria-label="Sunday">Su</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Monday">Mo</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Tuesday">Tu</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Wednesday">We</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Thursday">Th</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Friday">Fr</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Saturday">Sa</th></tr></thead><tbody><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-prevmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_-5" role="gridcell" tabindex="-1">26</td><td class="calendar_col1 yui3-calendar-prevmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_-4" role="gridcell" tabindex="-1">27</td><td class="calendar_col2 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_-3" role="gridcell" tabindex="-1">28</td><td class="calendar_col3 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_-2" role="gridcell" tabindex="-1">29</td><td class="calendar_col4 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_-1" role="gridcell" tabindex="-1">30</td><td class="calendar_col5 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_0" role="gridcell" tabindex="-1">31</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_1" role="gridcell" tabindex="-1" aria-disabled="false">1</td><td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_2" role="gridcell" tabindex="-1" aria-disabled="false">2</td><td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_3" role="gridcell" tabindex="-1" aria-disabled="false">3</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_4" role="gridcell" tabindex="-1" aria-disabled="false">4</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_5" role="gridcell" tabindex="-1" aria-disabled="false">5</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_6" role="gridcell" tabindex="-1" aria-disabled="false">6</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_7" role="gridcell" tabindex="-1" aria-disabled="false">7</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_2" role="gridcell" tabindex="-1" aria-disabled="false">2</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_3" role="gridcell" tabindex="-1" aria-disabled="false">3</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_4" role="gridcell" tabindex="-1" aria-disabled="false">4</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_5" role="gridcell" tabindex="-1" aria-disabled="false">5</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_6" role="gridcell" tabindex="-1" aria-disabled="false">6</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_7" role="gridcell" tabindex="-1" aria-disabled="false">7</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_8" role="gridcell" tabindex="-1" aria-disabled="false">8</td><td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_9" role="gridcell" tabindex="-1" aria-disabled="false">9</td><td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_10" role="gridcell" tabindex="-1" aria-disabled="false">10</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_11" role="gridcell" tabindex="-1" aria-disabled="false">11</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_12" role="gridcell" tabindex="-1" aria-disabled="false">12</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_13" role="gridcell" tabindex="-1" aria-disabled="false">13</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_14" role="gridcell" tabindex="-1" aria-disabled="false">14</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_9" role="gridcell" tabindex="-1" aria-disabled="false">9</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_10" role="gridcell" tabindex="-1" aria-disabled="false">10</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_11" role="gridcell" tabindex="-1" aria-disabled="false">11</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_12" role="gridcell" tabindex="-1" aria-disabled="false">12</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_13" role="gridcell" tabindex="-1" aria-disabled="false">13</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_14" role="gridcell" tabindex="-1" aria-disabled="false">14</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_15" role="gridcell" tabindex="-1" aria-disabled="false">15</td><td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_16" role="gridcell" tabindex="-1" aria-disabled="false">16</td><td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_17" role="gridcell" tabindex="-1" aria-disabled="false">17</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_18" role="gridcell" tabindex="-1" aria-disabled="false">18</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_19" role="gridcell" tabindex="-1" aria-disabled="false">19</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_20" role="gridcell" tabindex="-1" aria-disabled="false">20</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_21" role="gridcell" tabindex="-1" aria-disabled="false">21</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_16" role="gridcell" tabindex="-1" aria-disabled="false">16</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_17" role="gridcell" tabindex="-1" aria-disabled="false">17</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_18" role="gridcell" tabindex="-1" aria-disabled="false">18</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_19" role="gridcell" tabindex="-1" aria-disabled="false">19</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_20" role="gridcell" tabindex="-1" aria-disabled="false">20</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_21" role="gridcell" tabindex="-1" aria-disabled="false">21</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_22" role="gridcell" tabindex="-1" aria-disabled="false">22</td><td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_23" role="gridcell" tabindex="-1" aria-disabled="false">23</td><td class="calendar_col8 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_24" role="gridcell" tabindex="-1" aria-disabled="false">24</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_25" role="gridcell" tabindex="-1" aria-disabled="false">25</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_26" role="gridcell" tabindex="-1" aria-disabled="false">26</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_27" role="gridcell" tabindex="-1" aria-disabled="false">27</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_28" role="gridcell" tabindex="-1" aria-disabled="false">28</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_23" role="gridcell" tabindex="-1" aria-disabled="false">23</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_24" role="gridcell" tabindex="-1" aria-disabled="false">24</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_25" role="gridcell" tabindex="-1" aria-disabled="false">25</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_26" role="gridcell" tabindex="-1" aria-disabled="false">26</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_27" role="gridcell" tabindex="-1" aria-disabled="false">27</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_28" role="gridcell" tabindex="-1" aria-disabled="false">28</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_29" role="gridcell" tabindex="-1" aria-disabled="false">29</td><td class="calendar_col7 yui3-calendar-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_30" role="gridcell" tabindex="-1" aria-disabled="false">30</td><td class="calendar_col8 yui3-calendar-nextmonth-day" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_31" role="gridcell" tabindex="-1" aria-disabled="false">1</td><td class="calendar_col9 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_32" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col10 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_33" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col11 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_34" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col12 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_35" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_0_30" role="gridcell" tabindex="-1" aria-disabled="false">30</td><td class="calendar_col1 yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_1_31" role="gridcell" tabindex="-1">&nbsp;</td><td class="calendar_col2 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_2_32" role="gridcell" tabindex="-1" aria-disabled="false">2</td><td class="calendar_col3 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_3_33" role="gridcell" tabindex="-1" aria-disabled="false">3</td><td class="calendar_col4 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_4_34" role="gridcell" tabindex="-1" aria-disabled="false">4</td><td class="calendar_col5 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_5_35" role="gridcell" tabindex="-1" aria-disabled="false">5</td><td class="calendar_col6 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_6_36" role="gridcell" tabindex="-1" aria-disabled="false">6</td><td class="calendar_col7 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_7_37" role="gridcell" tabindex="-1" aria-disabled="false">7</td><td class="calendar_col8 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542438024496_15_pane_0_8_38" role="gridcell" tabindex="-1" aria-disabled="false">8</td><td class="calendar_col9 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_9_39" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col10 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_10_40" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col11 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_11_41" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col12 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542438024496_15_pane_0_12_42" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td></tr></tbody></table></div></div></div></div>
+     <div id="yui_3_18_1_1_1542474968071_12" class="yui3-widget yui3-calendarbase yui3-calendar" aria-labelledby="calendaryui_3_18_1_1_1542474968071_15_header" tabindex="1" style="width: 340px;"><div id="mycalendar" class="yui3-calendar-content" style="visibility: inherit;"><div class="yui3-g yui3-calendar-pane" id="calendaryui_3_18_1_1_1542474968071_15"><div class="yui3-g yui3-calendar-header" id="yui_3_18_1_1_1542474968071_144"><a class="yui3-u yui3-calendarnav-prevmonth" role="button" aria-label="Go to previous month" tabindex="1" id="yui_3_18_1_1_1542474968071_154"></a><div class="yui3-u yui3-calendar-header-label" id="calendaryui_3_18_1_1_1542474968071_15_header" aria-role="heading">November 2018</div><a class="yui3-u yui3-calendarnav-nextmonth" role="button" aria-label="Go to next month" tabindex="1" id="yui_3_18_1_1_1542474968071_143"></a></div><div class="yui3-u-1"><table class="yui3-calendar-grid" id="calendaryui_3_18_1_1_1542474968071_15_pane_0" role="grid" aria-readonly="true" aria-label="November 2018" tabindex="1" style="visibility: inherit;"><thead><tr class="yui3-calendar-weekdayrow" role="row"><th class="yui3-calendar-weekday" role="columnheader" aria-label="Sunday">Su</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Monday">Mo</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Tuesday">Tu</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Wednesday">We</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Thursday">Th</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Friday">Fr</th><th class="yui3-calendar-weekday" role="columnheader" aria-label="Saturday">Sa</th></tr></thead><tbody><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-prevmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_0_-5" role="gridcell" tabindex="-1">26</td><td class="calendar_col1 yui3-calendar-prevmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_1_-4" role="gridcell" tabindex="-1">27</td><td class="calendar_col2 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_2_-3" role="gridcell" tabindex="-1">28</td><td class="calendar_col3 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_3_-2" role="gridcell" tabindex="-1">29</td><td class="calendar_col4 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_4_-1" role="gridcell" tabindex="-1">30</td><td class="calendar_col5 yui3-calendar-prevmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_5_0" role="gridcell" tabindex="-1">31</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_6_1" role="gridcell" tabindex="-1" aria-disabled="false">1</td><td class="calendar_col7 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_7_2" role="gridcell" tabindex="-1" aria-disabled="false">2</td><td class="calendar_col8 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_8_3" role="gridcell" tabindex="-1" aria-disabled="false">3</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_9_4" role="gridcell" tabindex="-1" aria-disabled="false">4</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_10_5" role="gridcell" tabindex="-1" aria-disabled="false">5</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_11_6" role="gridcell" tabindex="-1" aria-disabled="false">6</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_12_7" role="gridcell" tabindex="-1" aria-disabled="false">7</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_0_2" role="gridcell" tabindex="-1" aria-disabled="false">2</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_1_3" role="gridcell" tabindex="-1" aria-disabled="false">3</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_2_4" role="gridcell" tabindex="-1" aria-disabled="false">4</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_3_5" role="gridcell" tabindex="-1" aria-disabled="false">5</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_4_6" role="gridcell" tabindex="-1" aria-disabled="false">6</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_5_7" role="gridcell" tabindex="-1" aria-disabled="false">7</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_6_8" role="gridcell" tabindex="-1" aria-disabled="false">8</td><td class="calendar_col7 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_7_9" role="gridcell" tabindex="-1" aria-disabled="false">9</td><td class="calendar_col8 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_8_10" role="gridcell" tabindex="-1" aria-disabled="false">10</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_9_11" role="gridcell" tabindex="-1" aria-disabled="false">11</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_10_12" role="gridcell" tabindex="-1" aria-disabled="false">12</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_11_13" role="gridcell" tabindex="-1" aria-disabled="false">13</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_12_14" role="gridcell" tabindex="-1" aria-disabled="false">14</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_0_9" role="gridcell" tabindex="-1" aria-disabled="false">9</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_1_10" role="gridcell" tabindex="-1" aria-disabled="false">10</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_2_11" role="gridcell" tabindex="-1" aria-disabled="false">11</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_3_12" role="gridcell" tabindex="-1" aria-disabled="false">12</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_4_13" role="gridcell" tabindex="-1" aria-disabled="false">13</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_5_14" role="gridcell" tabindex="-1" aria-disabled="false">14</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_6_15" role="gridcell" tabindex="-1" aria-disabled="false">15</td><td class="calendar_col7 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_7_16" role="gridcell" tabindex="-1" aria-disabled="false">16</td><td class="calendar_col8 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_8_17" role="gridcell" tabindex="-1" aria-disabled="false">17</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_9_18" role="gridcell" tabindex="-1" aria-disabled="false">18</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_10_19" role="gridcell" tabindex="-1" aria-disabled="false">19</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_11_20" role="gridcell" tabindex="-1" aria-disabled="false">20</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_12_21" role="gridcell" tabindex="-1" aria-disabled="false">21</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_0_16" role="gridcell" tabindex="-1" aria-disabled="false">16</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_1_17" role="gridcell" tabindex="-1" aria-disabled="false">17</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_2_18" role="gridcell" tabindex="-1" aria-disabled="false">18</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_3_19" role="gridcell" tabindex="-1" aria-disabled="false">19</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_4_20" role="gridcell" tabindex="-1" aria-disabled="false">20</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_5_21" role="gridcell" tabindex="-1" aria-disabled="false">21</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_6_22" role="gridcell" tabindex="-1" aria-disabled="false">22</td><td class="calendar_col7 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_7_23" role="gridcell" tabindex="-1" aria-disabled="false">23</td><td class="calendar_col8 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_8_24" role="gridcell" tabindex="-1" aria-disabled="false">24</td><td class="calendar_col9 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_9_25" role="gridcell" tabindex="-1" aria-disabled="false">25</td><td class="calendar_col10 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_10_26" role="gridcell" tabindex="-1" aria-disabled="false">26</td><td class="calendar_col11 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_11_27" role="gridcell" tabindex="-1" aria-disabled="false">27</td><td class="calendar_col12 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_12_28" role="gridcell" tabindex="-1" aria-disabled="false">28</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_0_23" role="gridcell" tabindex="-1" aria-disabled="false">23</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_1_24" role="gridcell" tabindex="-1" aria-disabled="false">24</td><td class="calendar_col2 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_2_25" role="gridcell" tabindex="-1" aria-disabled="false">25</td><td class="calendar_col3 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_3_26" role="gridcell" tabindex="-1" aria-disabled="false">26</td><td class="calendar_col4 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_4_27" role="gridcell" tabindex="-1" aria-disabled="false">27</td><td class="calendar_col5 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_5_28" role="gridcell" tabindex="-1" aria-disabled="false">28</td><td class="calendar_col6 yui3-calendar-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_6_29" role="gridcell" tabindex="-1" aria-disabled="false">29</td><td class="calendar_col7 yui3-calendar-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_7_30" role="gridcell" tabindex="-1" aria-disabled="false">30</td><td class="calendar_col8 yui3-calendar-nextmonth-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_8_31" role="gridcell" tabindex="-1" aria-disabled="false">1</td><td class="calendar_col9 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_9_32" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col10 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_10_33" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col11 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_11_34" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col12 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_12_35" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td></tr><tr class="yui3-calendar-row" role="row"><td class="calendar_col0 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_0_30" role="gridcell" tabindex="-1" aria-disabled="false">30</td><td class="calendar_col1 yui3-calendar-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_1_31" role="gridcell" tabindex="-1" aria-disabled="false">31</td><td class="calendar_col2 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_2_32" role="gridcell" tabindex="-1" aria-disabled="false">2</td><td class="calendar_col3 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_3_33" role="gridcell" tabindex="-1" aria-disabled="false">3</td><td class="calendar_col4 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_4_34" role="gridcell" tabindex="-1" aria-disabled="false">4</td><td class="calendar_col5 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_5_35" role="gridcell" tabindex="-1" aria-disabled="false">5</td><td class="calendar_col6 yui3-calendar-nextmonth-day " id="calendaryui_3_18_1_1_1542474968071_15_pane_0_6_36" role="gridcell" tabindex="-1" aria-disabled="false">6</td><td class="calendar_col7 yui3-calendar-nextmonth-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_7_37" role="gridcell" tabindex="-1" aria-disabled="false">7</td><td class="calendar_col8 yui3-calendar-nextmonth-day" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_8_38" role="gridcell" tabindex="-1" aria-disabled="false">8</td><td class="calendar_col9 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_9_39" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col10 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_10_40" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col11 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_11_41" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td><td class="calendar_col12 yui3-calendar-nextmonth-day yui3-calendar-column-hidden" id="calendaryui_3_18_1_1_1542474968071_15_pane_0_12_42" role="gridcell" tabindex="-1" aria-disabled="false">&nbsp;</td></tr></tbody></table></div></div></div></div>
+  </div>
+  <div id="rightcolumn" class="yui3-u">
+   <div id="links" style="padding-left:20px;">
+      <!-- The buttons are created simply by assigning the correct CSS class -->
+      <button id="togglePrevMonth" class="yui3-button">Toggle Previous Month's Dates</button><br>
+      <button id="toggleNextMonth" class="yui3-button">Toggle Next Month's Dates</button><br>
+      Selected date: <span id="selecteddate"></span>
+   </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
+
+    // Create a new instance of calendar, placing it in
+    // #mycalendar container, setting its width to 340px,
+    // the flags for showing previous and next month's
+    // dates in available empty cells to true, and setting
+    // the date to today's date.
+    var calendar = new Y.Calendar({
+      contentBox: "#mycalendar",
+      width:'340px',
+      showPrevMonth: true,
+      showNextMonth: true,
+      date: new Date()}).render();
+
+    // Get a reference to Y.DataType.Date
+    var dtdate = Y.DataType.Date;
+
+    // Listen to calendar's selectionChange event.
+    calendar.on("selectionChange", function (ev) {
+
+      // Get the date from the list of selected
+      // dates returned with the event (since only
+      // single selection is enabled by default,
+      // we expect there to be only one date)
+      var newDate = ev.newSelection[0];
+
+      // Format the date and output it to a DOM
+      // element.
+      Y.one("#selecteddate").setHTML(dtdate.format(newDate));
+    });
+
+
+    // When the 'Show Previous Month' link is clicked,
+    // modify the showPrevMonth property to show or hide
+    // previous month's dates
+    Y.one("#togglePrevMonth").on('click', function (ev) {
+      ev.preventDefault();
+      calendar.set('showPrevMonth', !(calendar.get("showPrevMonth")));
+    });
+
+    // When the 'Show Next Month' link is clicked,
+    // modify the showNextMonth property to show or hide
+    // next month's dates
+    Y.one("#toggleNextMonth").on('click', function (ev) {
+      ev.preventDefault();
+      calendar.set('showNextMonth', !(calendar.get("showNextMonth")));
+    });
+});
+</script>
+
+</div>
+</body>
+</html>
